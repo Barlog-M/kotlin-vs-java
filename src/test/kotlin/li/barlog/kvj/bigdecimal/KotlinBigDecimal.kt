@@ -8,7 +8,7 @@ class KotlinBigDecimal {
 	fun compoundInterest(base: BigDecimal,
 						 interest: BigDecimal,
 						 years: Int): BigDecimal =
-		(base * (BigDecimal("1.00") + interest / BigDecimal("100.00")).pow(years))
+		(base * (BigDecimal.ONE + interest / BigDecimal("100.00")).pow(years))
 			.setScale(2, BigDecimal.ROUND_HALF_UP)
 
 	@Test

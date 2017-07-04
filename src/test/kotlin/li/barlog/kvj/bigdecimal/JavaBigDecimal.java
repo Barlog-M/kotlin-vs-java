@@ -13,7 +13,7 @@ public class JavaBigDecimal {
 		int years
 	) {
 		return interest.divide(new BigDecimal("100.00"))
-			.add(new BigDecimal("1.00"))
+			.add(BigDecimal.ONE)
 			.pow(years)
 			.multiply(base)
 			.setScale(2, BigDecimal.ROUND_HALF_UP);

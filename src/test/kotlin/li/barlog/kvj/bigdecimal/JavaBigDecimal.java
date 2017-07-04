@@ -16,7 +16,7 @@ public class JavaBigDecimal {
 			.add(BigDecimal.ONE)
 			.pow(years)
 			.multiply(base)
-			.setScale(2, BigDecimal.ROUND_HALF_UP);
+			.setScale(2, BigDecimal.ROUND_HALF_EVEN);
 	}
 
 	@Test

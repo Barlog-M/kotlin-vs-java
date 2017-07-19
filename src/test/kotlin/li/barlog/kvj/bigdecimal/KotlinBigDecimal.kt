@@ -3,13 +3,19 @@ package li.barlog.kvj.bigdecimal
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.math.BigDecimal
+import java.math.BigDecimal.ONE
+import java.math.BigDecimal.ROUND_HALF_EVEN
 
 class KotlinBigDecimal {
+	companion object {
+		 private val ONE_HUNDRED = BigDecimal("100.00")
+	}
+
 	fun compoundInterest(base: BigDecimal,
 						 interest: BigDecimal,
 						 years: Int): BigDecimal =
-		(base * (BigDecimal.ONE + interest / BigDecimal("100.00")).pow(years))
-			.setScale(2, BigDecimal.ROUND_HALF_EVEN)
+		(base * (ONE + interest / ONE_HUNDRED).pow(years))
+			.setScale(2, ROUND_HALF_EVEN)
 
 	@Test
 	fun compoundInterestTest() {

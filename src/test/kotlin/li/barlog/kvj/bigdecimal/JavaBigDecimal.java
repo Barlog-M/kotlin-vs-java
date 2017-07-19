@@ -5,18 +5,22 @@ import org.junit.Test;
 import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
+import static java.math.BigDecimal.ONE;
+import static java.math.BigDecimal.ROUND_HALF_EVEN;
 
 public class JavaBigDecimal {
+	private static BigDecimal ONE_HUNDRED = new BigDecimal("100.00");
+
 	BigDecimal compoundInterest(
 		BigDecimal base,
 		BigDecimal interest,
 		int years
 	) {
-		return interest.divide(new BigDecimal("100.00"))
-			.add(BigDecimal.ONE)
+		return interest.divide(ONE_HUNDRED)
+			.add(ONE)
 			.pow(years)
 			.multiply(base)
-			.setScale(2, BigDecimal.ROUND_HALF_EVEN);
+			.setScale(2, ROUND_HALF_EVEN);
 	}
 
 	@Test
